@@ -1,0 +1,29 @@
+{
+  "name": "jl-receiver",
+  "version": "0.2.0",
+  "description": "Management Layer for jl-client",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.houston.softwaregrp.net:andreas-weber/jl-receiver.git"
+  },
+  "author": {
+    "name": "Tobias Wittwer",
+    "url": "https://github.com/twittwer"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "dependencies": {
+    "event-emitter": "git+ssh://git@github.houston.softwaregrp.net:andreas-weber/event-emitter.git",
+    "jl-client": "git+ssh://git@github.houston.softwaregrp.net:andreas-weber/jl-client.git",
+    "native-promise-only": "0.8.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.0",
+    "eslint": "^4.6.1",
+    "eslint-config-es": "^0.8.11"
+  }
+}

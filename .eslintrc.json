@@ -1,0 +1,43 @@
+{
+    "extends": "es/2015/server",
+    "rules": {
+      "array-bracket-spacing": ["error", "never"],
+      "arrow-body-style": ["error", "always"],
+      "dot-location": ["error", "property"],
+      "id-length": [2, {
+        "min": 2,
+        "max": 99999,
+        "properties": "always",
+        "exceptions": ["$", "_", "i", "j", "x", "y", "z"]
+      }],
+      "indent": [2, 2, {
+        "SwitchCase": 1,
+        "VariableDeclarator": {
+          "var": 1,
+          "let": 1,
+          "const": 1
+        }
+      }],
+      "line-comment-position": ["error", {
+        "position": "beside"
+      }],
+      "linebreak-style": 0,
+      "newline-per-chained-call": [2, {
+        "ignoreChainWithDepth": 6
+      }],
+      "no-inline-comments": 0,
+      "no-shadow": ["error", {
+        "builtinGlobals": false,
+        "hoist": "functions",
+        "allow": ["err"]
+      }],
+      "no-underscore-dangle": 0, // we like to prefix private members with _
+      "object-shorthand": ["error", "consistent"],
+      "prefer-template": 0,
+      "prefer-reflect": 0,
+      "space-before-function-paren": [2, {
+        "anonymous": "never",
+        "named": "never"
+      }]
+    }
+  }
