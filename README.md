@@ -1,14 +1,14 @@
 # jl-receiver
 
-> Management Layer for [jl-client](https://github.houston.softwaregrp.net/andreas-weber/jl-client)
+> Management Layer for [jl-client](https://github.com:twittwer/jl-client)
 
-# Installation
-```
-npm install git+ssh://git@github.houston.softwaregrp.net:andreas-weber/jl-receiver.git
-```
+## Installation
 
-# Usage
-```
+`npm install git+ssh://git@github.com:twittwer/jl-receiver.git`
+
+## Usage
+
+```javascript
 const jlReceiver = require('jl-receiver');
 
 const requestConfig = {
@@ -37,13 +37,15 @@ jlReceiver.connect(requestConfig)
     });
 ```
 
-# Reference
+## Reference
+
 > required **parameters** are written bold  
-> optional *parameters* are written italic or marked with `[`square brackets`]`  
+> optional *parameters* are written italic or marked with `[`square brackets`]`
 
-## Methods
+### Methods
 
-### jlClient.connect(requestConfig, [moduleConfig]): Promise
+#### jlClient.connect(requestConfig, [moduleConfig]): Promise
+
 Creates XHR to start HTTP streaming based on request configuration.
 
 | Param             | Type            | Sample                              | Description                       |
@@ -52,10 +54,11 @@ Creates XHR to start HTTP streaming based on request configuration.
 | *moduleConfig*    | `moduleConfig`  | `{ 'connectionTimeoutInMS': 5000 }` | configuration of request handling |
 
 **Resolves** with connected server instance (`.then(server => {...})`)  
-**Rejects** in cases of a failed connection attempt (`.catch(error => {...})`)  
+**Rejects** in cases of a failed connection attempt (`.catch(error => {...})`)
 
 
-### server.on(eventName, eventHandler): void
+#### server.on(eventName, eventHandler): void
+
 Registers handler/callback functions for events (`data`, `disconnect`).  
 Internally there are more events emitted (`heartbeat`, ...), but they are mainly for administrative tasks only.
 
@@ -75,7 +78,8 @@ Internally there are more events emitted (`heartbeat`, ...), but they are mainly
 
 > *) executes just once
 
-### server.removeListener(eventName, eventHandler): void
+#### server.removeListener(eventName, eventHandler): void
+
 Removes listeners from prior event registration (`server.on(...)`).
 
 | Param            | Type       |
@@ -83,19 +87,21 @@ Removes listeners from prior event registration (`server.on(...)`).
 | **eventName**    | `string`   |
 | **eventHandler** | `function` |
 
-### server.reconnect([doHandover]): void
+#### server.reconnect([doHandover]): void
+
 Reconnects server connection.
 
 | Param        | Type      | Description                                                                                  |
 | ------------ | --------- | -------------------------------------------------------------------------------------------- |
 | *doHandover* | `boolean` | option for a one-time overwrite of the `reconnectWithHandover` property in the module config |
 
-### server.disconnect(): void
+#### server.disconnect(): void
+
 Closes server connection.
 
-## Custom Type Definitions
+### Custom Type Definitions
 
-### `requestConfig` - Request Configuration
+#### `requestConfig` - Request Configuration
 
 | Param     | Type      | Sample                                | Description                             |
 | --------- | --------- | ------------------------------------- | --------------------------------------- |
@@ -106,10 +112,10 @@ Closes server connection.
 | *headers* | `object`  | `{ 'Authorization': 'Basic abc123' }` | map of http headers and their values    |
 | *query*   | `object`  | `{ 'lastEvent': '1505077200' }`       | map of url query params and their value |
 | *body*    | `object`  | `{ 'subjects': ['news','weather'] }`  | http body (json only)                   |
-  
-> *) as default `ssl`, `host`, `port` will be defined by current domain  
 
-### `moduleConfig` - Module Configuration
+> *) as default `ssl`, `host`, `port` will be defined by current domain
+
+#### `moduleConfig` - Module Configuration
 
 | Param                   | Type               | Default        | Description                                                                     |
 | ----------------------- | ------------------ | -------------- | ------------------------------------------------------------------------------- |
@@ -122,7 +128,7 @@ Closes server connection.
 
 > *) `(dataPackage) => boolean`
 
-### `reconnectTrigger` - Reconnect Trigger Configuration
+#### `reconnectTrigger` - Reconnect Trigger Configuration
 
 | Param                    | Type      | Default | Description                                                        |
 | ------------------------ | --------- | ------- | ------------------------------------------------------------------ |
